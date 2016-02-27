@@ -20,19 +20,19 @@ func main() {
 	// Invoke the appropriate command
 	switch commandName {
 	case "init":
-		if err := command.InitResume(args[0]); err == nil {
+		if err := command.InitResumeFile(args[0]); err == nil {
 			fmt.Printf("Empty resume data file \"%s\" has been created.\n", args[0])
 		} else {
 			fmt.Println(err)
 		}
 	case "convert":
-		if err := command.ConvertResume(args[0], args[1]); err == nil {
+		if err := command.ConvertResumeFile(args[0], args[1]); err == nil {
 			fmt.Printf("Converted resume data file \"%s\" has been created.\n", args[1])
 		} else {
 			fmt.Println(err)
 		}
 	case "export":
-		if err := command.ExportResume(args[0], args[1], args[2]); err == nil {
+		if err := command.ExportResumeFile(args[0], args[1], args[2]); err == nil {
 			fmt.Printf("Resume has been exported to \"%s\" using template \"%s\".\n", args[1], args[2])
 		} else {
 			fmt.Println(err)

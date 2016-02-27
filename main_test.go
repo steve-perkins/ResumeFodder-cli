@@ -149,8 +149,9 @@ func TestExport_Valid(t *testing.T) {
 
 // Tests that when the export command can't find a template at the specified location, that the command will try
 // prepending that with the "templates" directory.  This test logically belongs in the "command/command_test.go" test
-// file, but instead lives here because it requires the current working directory to be the project root.
-func TestExportResume_TemplateDefaultPath(t *testing.T) {
+// file within the base "ResumeFodder" project, but instead lives here because it requires the current working
+// directory to be the project root.
+func TestExportResumeFile_TemplateDefaultPath(t *testing.T) {
 	xmlFilename := filepath.Join(os.TempDir(), "testresume.xml")
 	testutils.DeleteFileIfExists(t, xmlFilename)
 	defer testutils.DeleteFileIfExists(t, xmlFilename)
@@ -163,7 +164,7 @@ func TestExportResume_TemplateDefaultPath(t *testing.T) {
 
 	outputFilename := filepath.Join(os.TempDir(), "resume.doc")
 	templateFilename := "plain.xml"
-	err = command.ExportResume(xmlFilename, outputFilename, templateFilename)
+	err = command.ExportResumeFile(xmlFilename, outputFilename, templateFilename)
 	if err != nil {
 		t.Fatal(err)
 	}
