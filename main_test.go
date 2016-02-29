@@ -129,8 +129,8 @@ func TestExport_NoTemplateFilename(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if args[2] != "plain.xml" {
-		t.Fatal(errors.New("When no template file is specified, the default value of \"plain.xml\" should be used"))
+	if args[2] != "standard.xml" {
+		t.Fatal(errors.New("When no template file is specified, the default value of \"standard.xml\" should be used"))
 	}
 }
 
@@ -163,7 +163,7 @@ func TestExportResumeFile_TemplateDefaultPath(t *testing.T) {
 	}
 
 	outputFilename := filepath.Join(os.TempDir(), "resume.doc")
-	templateFilename := "plain.xml"
+	templateFilename := "standard.xml"
 	err = command.ExportResumeFile(xmlFilename, outputFilename, templateFilename)
 	if err != nil {
 		t.Fatal(err)

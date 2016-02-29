@@ -113,7 +113,7 @@ func ParseArgs(args []string) (string, []string, error) {
 		}
 		var templateFilename string
 		if len(args) < 5 {
-			templateFilename = "plain.xml"
+			templateFilename = "standard.xml"
 		} else {
 			templateFilename = args[4]
 		}
@@ -169,7 +169,7 @@ ResumeFodder.exe convert resume.xml resume.json
 	'.xml' file extension.
 
 ResumeFodder.exe export <data filename> <output filename> <template filename>
-ResumeFodder.exe export resume.json resume.doc templates/plain.xml
+ResumeFodder.exe export resume.json resume.doc templates/standard.xml
 
 	The resume data file specified by the first parameter will
 	published as a Microsoft Word file with the name specified by
@@ -186,7 +186,7 @@ ResumeFodder.exe export resume.json resume.doc templates/plain.xml
 	If the specified template is not found in the current working
 	directory, then the application will look under a "templates"
 	subdirectory in the current working directory.  If no template
-	is specified, the the application will use the "plain.xml"
+	is specified, the the application will use the "standard.xml"
 	template.
 `)
 	os.Exit(0)
