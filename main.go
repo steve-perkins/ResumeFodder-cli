@@ -7,7 +7,10 @@ import (
 	"os"
 	"path"
 	"strings"
+	"gitlab.com/steve-perkins/ResumeFodder/data"
 )
+
+const CLI_VERSION = 1.0
 
 func main() {
 	// Identify the requested command, and perform any pre-processing of command inputs
@@ -133,7 +136,11 @@ func ParseArgs(args []string) (string, []string, error) {
 // usage displays information about this application and its supported arguments, and then terminates
 // the application.
 func usage() {
-	fmt.Println(`
+	fmt.Printf(`
+ResumeFodder, v. %1.1f
+Using schema version %d
+https://resumefodder.com
+
 Usage:
 
    ResumeFodder.exe COMMAND <args>
@@ -187,7 +194,7 @@ ResumeFodder.exe export resume.json resume.doc templates/standard.xml
 	directory, then the application will look under a "templates"
 	subdirectory in the current working directory.  If no template
 	is specified, the the application will use the "standard.xml"
-	template.
-`)
+	template.\n
+`, CLI_VERSION, data.SCHEMA_VERSION)
 	os.Exit(0)
 }
